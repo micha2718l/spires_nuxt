@@ -1,11 +1,42 @@
 <template>
-  <div class="container">
-    <spire-gif
-    :height="200"
-    :width="200"
-    >
-    </spire-gif>
-  </div>
+
+  <b-container>
+    <b-row>
+      <b-col>
+        <input
+          type="number"
+          v-model="height"
+        > Height
+        <input type="range" class="custom-range" v-model="height"/>
+      </b-col>
+      <b-col>
+        <input
+          type="number"
+          v-model="width"
+        > Width
+        <input type="range" class="custom-range" v-model="width"/>
+      </b-col>
+    </b-row>
+
+    <b-row>
+      <b-col>
+        <spire-gif
+        :height="newSettings.height"
+        :width="newSettings.width"
+        :setup="newSettings.setup"
+        />
+      </b-col>
+      <b-col>
+        <b-button @click="refreshGif()">REFRESH</b-button>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <textarea class="form-control" v-model="setup" rows="15"></textarea>
+      </b-col>
+    </b-row>
+  </b-container>
+
 </template>
 
 <script>
@@ -17,41 +48,29 @@ export default {
   },
   data() {
     return {
-      apiUrl: process.env.apiUrl
+      apiUrl: process.env.apiUrl,
+      height: 50,
+      width: 50,
+      setup: `{"functions": [{"name": "s1", "function": "sin", "frequency": 1, "phase": 0}, {"name": "s2", "function": "sin", "frequency": 2, "phase": 0}, {"name": "s3", "function": "sin", "frequency": 3, "phase": 0}], "spires": [{"base_wiggle": [0, "s3", null], "spire_base_width": [0.3, null, null], "spire_base_center": [0.75, null, null], "spire_height": [0.75, "s2", null]}, {"base_wiggle": [0, null, null], "spire_base_width": [0.3, null, null], "spire_base_center": [0.25, null, null], "spire_height": [0.5, "s1", null]}]}`,
+      newSettings: {
+        height: this.height,
+        width: this.width,
+        setup: this.setup
+      }
     };
+  },
+  methods: {
+    refreshGif: function() {
+      this.newSettings.height = parseInt(this.height);
+      this.newSettings.width = parseInt(this.width);
+      this.newSettings.setup = this.setup;
+      
+      console.log(this.newSettings);
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
