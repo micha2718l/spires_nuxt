@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         Awesome Dooooooom Spires!!!!
       </h2>
+      <a :href="apiUrl">{{ apiUrl }}</a>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -34,6 +35,11 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data() {
+    return {
+      apiUrl: process.env.apiUrl
+    };
   }
 }
 </script>

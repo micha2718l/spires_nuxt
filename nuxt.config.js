@@ -50,5 +50,8 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  env: {
+    apiUrl: process.env.API_URL || 'http://localhost:3000'
   }
 }
