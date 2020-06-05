@@ -27,7 +27,7 @@
         />
       </b-col>
       <b-col>
-        <b-button @click="refreshGif()">REFRESH</b-button>
+        <b-button @click="refreshGif()">REFRESH</b-button><br/>
         <b-button @click="setupToObj()">JSON to UI</b-button>
         <b-button @click="refreshGif()">UI to JSON</b-button>
         <b-button @click="formatJson()">Format JSON</b-button>
@@ -61,7 +61,7 @@ export default {
       apiUrl: process.env.apiUrl,
       height: 100,
       width: 100,
-      setup: `{"functions": [{"name": "s1", "function": "sin", "frequency": 1, "phase": 0}, {"name": "s2", "function": "sin", "frequency": 2, "phase": 0}, {"name": "s3", "function": "sin", "frequency": 3, "phase": 0}], "spires": [{"base_wiggle": [0, "s3", null], "spire_base_width": [0.3, null, null], "spire_base_center": [0.75, null, null], "spire_height": [0.75, "s2", null]}, {"base_wiggle": [0, null, null], "spire_base_width": [0.3, null, null], "spire_base_center": [0.25, null, null], "spire_height": [0.5, "s1", null]}]}`,
+      setup: `{"flash_0": 15,"flash_1": 25,"functions": [{"name": "s1", "function": "sin", "frequency": 1, "phase": 0}, {"name": "s2", "function": "sin", "frequency": 2, "phase": 0}, {"name": "s3", "function": "sin", "frequency": 3, "phase": 0}], "spires": [{"base_wiggle": [0, "s3", null], "spire_base_width": [0.3, null, null], "spire_base_center": [0.75, null, null], "spire_height": [0.75, "s2", null]}, {"base_wiggle": [0, null, null], "spire_base_width": [0.3, null, null], "spire_base_center": [0.25, null, null], "spire_height": [0.5, "s1", null]}]}`,
       setupObj: {},
       newSettings: {
         height: this.height,
@@ -87,7 +87,6 @@ export default {
     },
     updateSpire: function(e) {
       this.setupObj.spires[e.index] = e;
-      console.log(this.setupObj);
       this.setup = this.setupToStr();
       this.formatJson();
     }
