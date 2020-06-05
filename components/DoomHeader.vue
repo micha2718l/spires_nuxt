@@ -5,7 +5,7 @@
         Inspired by <a href="https://www.youtube.com/channel/UC9_4jytRfuVd4y7VQ8hOY0g">DoomSpire20</a>
       </b-col>
       <b-col cols="5" class="title">
-        Dancing Spires Generator
+        Dancing Spires Generator (Beta V0.2)
       </b-col>
       <b-col class="lightning">
         Now with lightning!<br/>
