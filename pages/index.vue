@@ -26,6 +26,7 @@
           :height="newSettings.height"
           :width="newSettings.width"
           :setup="newSettings.setup"
+          :time-str="timeStr"
         />
       </b-col>
       <b-col>
@@ -69,7 +70,8 @@ export default {
         height: this.height,
         width: this.width,
         setup: this.setup
-      }
+      },
+      timeStr: new Date().getTime().toString()
     };
   },
   methods: {
@@ -77,6 +79,7 @@ export default {
       this.newSettings.height = parseInt(this.height);
       this.newSettings.width = parseInt(this.width);
       this.newSettings.setup = this.setup;
+      this.timeStr = new Date().getTime().toString();
     },
     setupToObj: function() {
       return JSON.parse(this.setup);

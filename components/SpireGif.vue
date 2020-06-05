@@ -1,12 +1,18 @@
 <template>
     <div>
-        <img :src="gifSrc"/>
+        <img v-show="loaded" :src="gifSrc" @load="loadedGif()"/>
+        <div v-show="!loaded">Loading...</div>
     </div>
 </template>
 
 <script>
 export default {
     props: {
+        timeStr: {
+            type: String,
+            required: false,
+            default: '000'
+        },
         width: {
             type: Number,
             required: false,
@@ -30,15 +36,22 @@ export default {
     },
     data() {
         return {
-            
+            loaded: false
+        }
+    },
+    methods: {
+        loadedGif: function() {
+            this.loaded = true;
         }
     },
     computed: {
         gifSrc: function() {
+            this.loaded = false;
             return this.apiUrl + 'spire_dance_custom.gif' +
             '?width=' + this.width.toString() +
             '&height=' + this.height.toString() +
-            '&setup=' + encodeURI(this.setup);
+            '&setup=' + encodeURI(this.setup) +
+            '&cacheBust=' + this.timeStr;
         }
     }
 };
