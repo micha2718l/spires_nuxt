@@ -6,29 +6,29 @@
                 <tr>
                     <td>Base Wiggle [{{ base_wiggle_amount }}]</td>
                     <td>
-                        <input type="number" v-model="base_wiggle_amount" />
-                        <input type="range" max="2" min="0" step="0.01" @change="update()" v-model="base_wiggle_amount" />
+                        <input type="text" size="5" v-model="base_wiggle_amount" />
+                        <input type="range" max="2"  class="custom-range range-small" min="0" step="0.01" @change="update()" v-model="base_wiggle_amount" />
                     </td>
                 </tr>
                 <tr>
                     <td>Base Width [{{ base_width_amount }}]</td>
                     <td>
-                        <input type="number" v-model="base_width_amount" />
-                        <input type="range" max="2" min="0" step="0.01" @change="update()" v-model="base_width_amount" />
+                        <input type="text" size="5" v-model="base_width_amount" />
+                        <input type="range" max="2"  class="custom-range range-small" min="0" step="0.01" @change="update()" v-model="base_width_amount" />
                     </td>
                 </tr>
                 <tr>
                     <td>Base Center [{{ base_center_amount }}]</td>
                     <td>
-                        <input type="number" v-model="base_center_amount" />
-                        <input type="range" max="1" min="0" step="0.01" @change="update()" v-model="base_center_amount" />
+                        <input type="text" size="5" v-model="base_center_amount" />
+                        <input type="range" max="1"  class="custom-range range-small" min="0" step="0.01" @change="update()" v-model="base_center_amount" />
                     </td>
                 </tr>
                 <tr>
                     <td>Height [{{ height_amount }}]</td>
                     <td>
-                        <input type="number" v-model="height_amount" />
-                        <input type="range" max="2" min="0" step="0.01" @change="update()" v-model="height_amount" />
+                        <input type="text" size="5" v-model="height_amount" />
+                        <input type="range" max="2"  class="custom-range range-small" min="0" step="0.01" @change="update()" v-model="height_amount" />
                     </td>
                 </tr>
             </tbody>
@@ -85,3 +85,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.range-small {
+    width: 5rem;
+}
+</style>

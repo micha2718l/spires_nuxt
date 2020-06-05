@@ -4,17 +4,19 @@
     <b-row>
       <b-col>
         <input
-          type="number"
+          type="text"
           v-model="height"
+          size="5"
         > Height
-        <input type="range" class="custom-range" v-model="height"/>
+        <input type="range" class="custom-range range-small" v-model="height"/>
       </b-col>
       <b-col>
         <input
-          type="number"
+          type="text"
           v-model="width"
+          size="5"
         > Width
-        <input type="range" class="custom-range" v-model="width"/>
+        <input type="range" class="custom-range range-small" v-model="width"/>
       </b-col>
     </b-row>
 
@@ -99,5 +101,10 @@ export default {
 </script>
 
 <style>
-
+.range-small {
+    width: 5rem;
+}
+.container {
+  margin: 0;
+}
 </style>
