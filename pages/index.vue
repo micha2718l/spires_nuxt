@@ -82,22 +82,22 @@ export default {
       this.timeStr = new Date().getTime().toString();
     },
     setupToObj: function() {
-      return JSON.parse(this.setup);
+      this.setupObj = JSON.parse(this.setup);
     },
     setupToStr: function() {
-      return JSON.stringify(this.setupObj);
+      this.setup = JSON.stringify(this.setupObj);
     },
     formatJson: function() {
       this.setup = JSON.stringify(JSON.parse(this.setup), null, 4);
     },
     updateSpire: function(e) {
       this.setupObj.spires[e.index] = e;
-      this.setup = this.setupToStr();
+      this.setupToStr();
       this.formatJson();
     }
   },
   mounted() {
-    this.setupObj = this.setupToObj();
+    this.setupToObj();
     this.formatJson();
   }
 }
