@@ -35,8 +35,6 @@ export default {
     },
     computed: {
         gifSrc: function() {
-            console.log(this.setup);
-            console.log(encodeURI(this.setup));
             return this.apiUrl + 'spire_dance_custom.gif' +
             '?width=' + this.width.toString() +
             '&height=' + this.height.toString() +
